@@ -36,10 +36,12 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					s = va_arg(args, char*);
-					for (j = 0; j < strlen(s); j++)
+					j = 0;
+					while (s[j])
 					{
 						write(1, s + j, 1);
 						count++;
+						j++;
 					}
 					break;
 				case 'i':
