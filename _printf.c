@@ -9,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list arg;
+	va_list args;
 	unsigned j, count = 0;
 	char *s;
 	int c, i = 0;
@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	(void) buffer;
 
 
-	va_start(arg, format);
+	va_start(args, format);
 	while (format && format[i])
 	{
 		if (format[i] == '%')
@@ -26,16 +26,16 @@ int _printf(const char *format, ...)
 			switch(format[i])
 			{
 				case '%':
-					c = va_arg(arg, int);
+					c = va_arg(args, int);
 					write(1, &c, 1);
 					break;
 				case 'c':
-					c = va_arg(arg, int);
+					c = va_arg(args, int);
 					write(1, &c, 1);
 					count++;
 					break;
 				case 's':
-					s = va_arg(arg, char*);
+					s = va_arg(args, char*);
 					for (j = 0; j < strlen(s); j++)
 					{
 						write(1, s + j, 1);
@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	va_end(arg);
+	va_end(args);
 
 	return (count);
 }
@@ -64,5 +64,6 @@ int _printf(const char *format, ...)
 int main(void)
 {
 	_printf("myc name: %s, %c\n", "Duaa", 'D');
+	_printf("myc name: %s, %c\n", "Omar", 'O');
 	return 0;
 }
