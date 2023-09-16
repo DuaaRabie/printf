@@ -1,0 +1,4 @@
+# Allow .c, .h, and .md files
+!*.c
+!*.h
+!*.md
