@@ -6,5 +6,6 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
-
+int to_hex(int n);
+int print_hex(const void *ptr);
 #endif

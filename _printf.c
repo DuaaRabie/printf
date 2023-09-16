@@ -94,6 +94,9 @@ int _printf(const char *format, ...)
 				case 'b':
 				c = va_arg(args, int);
 				count += print_binary(c);
+				case 'S':
+				c = va_arg(args, int);
+				count += to_hex(c);
 				break;
 				case 'i':
 				case 'd':

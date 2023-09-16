@@ -1,4 +1,5 @@
-# Ignore all files except .c files
+*
+# Allow .c, .h, and .md files
 !*.c
 !*.h
 !*.md
