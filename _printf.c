@@ -1,41 +1,6 @@
 #include "main.h"
 
-/**
- * conv_spec - determine the conversion specifier
- * @format: format to be printed
- * @i: index of character
- * @args: list of arguments
- * Return: counter of printing
- */
-/*
-int conv_spec(const char *format, va_list args, int i, int count)
-{
-	int c, j;
-	char *s;
 
-	switch (format[++i])
-	{
-		case 'c':
-			c = va_arg(args, int);
-			write(1, &c, 1);
-			count++;
-			break;
-		case 's':
-			s = va_arg(args, char*);
-			for (j = 0; s[j] != '\0'; j++)
-			{
-				write(1, s + j, 1);
-				count++;
-			}
-			break;
-		case '%':
-			write(1, &format[i], 1);
-			count++;
-			break;
-	}
-	return (count);
-}
-*/
 /**
  * _printf - prints a format
  * @format: the format to be printed

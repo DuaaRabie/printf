@@ -23,7 +23,7 @@ int check_width(int num, const char *format, int i);
 typedef struct specifier
 {
 	char ch;
-	int (*f) (va_list args, int count);
+	int (*f)(va_list args, int count);
 } specifier;
 
 int (*get_spc_fun(char ch))(va_list, int);

@@ -8,8 +8,7 @@ int (*get_spc_fun(char ch))(va_list, int)
 {
 	int i = 0;
 
-	specifier spc[] =
-	{
+	specifier spc[] = {
 		{'c', print_ch},
 		{'s', print_str},
 	};
@@ -31,7 +30,7 @@ int (*get_spc_fun(char ch))(va_list, int)
  */
 int print_ch(va_list args, int count)
 {
-	char c;
+	unsigned char c;
 
 	c = va_arg(args, int);
 	write(1, &c, 1);
@@ -47,7 +46,7 @@ int print_ch(va_list args, int count)
  */
 int print_str(va_list args, int count)
 {
-	char *s;
+	const char *s;
 	int j;
 
 	s = va_arg(args, char*);
