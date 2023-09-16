@@ -15,4 +15,19 @@ int print_space(long int num, int width);
 int print_int(int c);
 int check_width(int num, const char *format, int i);
 
+/**
+ * struct specifier - struct for specifer type and function
+ * @ch: The specifier character
+ * @f: The function associated
+ */
+typedef struct specifier
+{
+	char ch;
+	int (*f) (va_list args, int count);
+} specifier;
+
+int (*get_spc_fun(char ch))(va_list, int);
+int print_ch(va_list, int);
+int print_str(va_list, int);
+
 #endif
