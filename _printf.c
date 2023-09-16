@@ -9,23 +9,17 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int j, count = 0;
+	int j, count = 0, c, i;
 	char *s;
 	long int num;
-	int c, i = 0;
 
 	va_start(args, format);
-	while (format && format[i])
+	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			switch(format[i])
+			switch (format[++i])
 			{
-				case '%':
-					c = va_arg(args, int);
-					write(1, &c, 1);
-					break;
 				case 'c':
 					c = va_arg(args, int);
 					write(1, &c, 1);
@@ -44,11 +38,6 @@ int _printf(const char *format, ...)
 					num = va_arg(args, long int);
 					count += print_int(num);
 					break;
-				default:
-					num = va_arg(args, long int);
-					count += check_width(num, format, i);
-					i += 2;
-					continue;
 			}
 		}
 		else
@@ -56,7 +45,6 @@ int _printf(const char *format, ...)
 			write(1, &format[i], 1);
 			count++;
 		}
-		i++;
 	}
 	va_end(args);
 	return (count);
