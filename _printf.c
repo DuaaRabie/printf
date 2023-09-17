@@ -22,6 +22,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != '%')
 		{
+			i++;
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
 				count = spfun(args, count);
