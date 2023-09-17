@@ -13,25 +13,27 @@ int _printf(const char *format, ...)
 	int count = 0, i;
 	int (*spfun)(va_list, int);
 
-	if (format != NULL)
+	if (format == NULL)
 	{
-		va_start(args, format);
-		for (i = 0; format[i] != '\0'; i++)
+		return (-1);
+	}
+
+	va_start(args, format);
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] == '%' && format[i + 1] != '%')
 		{
-			if (format[i] == '%' && format[i + 1] != '%')
-			{
+			i++;
+			spfun = get_spc_fun(format[i]);
+			if (spfun != NULL)
+				count = spfun(args, count);
+		}
+		else
+		{
+			if (format[i] == '%' && format[i + 1] == '%')
 				i++;
-				spfun = get_spc_fun(format[i]);
-				if (spfun != NULL)
-					count = spfun(args, count);
-			}
-			else
-			{
-				if (format[i] == '%' && format[i + 1] == '%')
-					i++;
-				write(1, &format[i], 1);
-				count++;
-			}
+			write(1, &format[i], 1);
+			count++;
 		}
 	}
 	va_end(args);
