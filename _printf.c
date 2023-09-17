@@ -20,12 +20,10 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			i++;
-			if (format[i] == '\0')
-				i--;
-			else if (format[i] == '%')
+			if (format[i] == '%')
 			{
 				write(1, &format[i], 1);
 				count++;
@@ -37,7 +35,7 @@ int _printf(const char *format, ...)
 					count = spfun(args, count);
 			}
 		}
-		else
+		else if (format[i] != '%')
 		{
 			write(1, &format[i], 1);
 			count++;
