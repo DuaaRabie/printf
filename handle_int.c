@@ -33,7 +33,7 @@ int print_space(long int num, int width)
 }
 /**
  * digit_print - print integers
- * @c: integer to print
+ * @num: integer to print
  * Return: count
  */
 int digit_print(long int num)
