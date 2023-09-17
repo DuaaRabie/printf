@@ -35,8 +35,7 @@ int print_ch(va_list args, int count)
 	unsigned char c;
 
 	c = va_arg(args, int);
-	if (c != '\0')
-		write(1, &c, 1);
+	write(1, &c, 1);
 
 	return (++count);
 }
