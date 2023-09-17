@@ -55,8 +55,8 @@ int print_str(va_list args, int count)
 		s = "(null)";
 	for (j = 0; s != NULL && s[j] != '\0'; j++)
 	{
-			write(1, s + j, 1);
-			count++;
+		write(1, s + j, 1);
+		count++;
 	}
 
 	return (count);
