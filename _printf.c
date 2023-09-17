@@ -26,6 +26,8 @@ int _printf(const char *format, ...)
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
 				count = spfun(args, count);
+			else
+				return (-1);
 		}
 		else
 		{

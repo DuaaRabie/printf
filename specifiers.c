@@ -52,7 +52,7 @@ int print_str(va_list args, int count)
 	int j;
 
 	s = va_arg(args, char*);
-	if (s == NULL)
+	if (*s == '\0')
 		s = "(null)";
 	for (j = 0; s != NULL && s[j] != '\0'; j++)
 	{
