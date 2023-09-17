@@ -48,7 +48,7 @@ int print_ch(va_list args, int count)
  */
 int print_str(va_list args, int count)
 {
-	char *s;
+	const char *s;
 	int j;
 
 	s = va_arg(args, char*);
