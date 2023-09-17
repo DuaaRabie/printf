@@ -20,23 +20,30 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] != '%')
+		if (format[i] == '%')
 		{
 			i++;
-			spfun = get_spc_fun(format[i]);
-			if (spfun != NULL)
-			count = spfun(args, count);
+			if (format[i] == '\0')
+				return (-1);
+			else if (format[i] == '%')
+			{
+				write(1, &format[i], 1);
+				count++;
+			}
+			else
+			{
+				spfun = get_spc_fun(format[i]);
+				if (spfun != NULL)
+					count = spfun(args, count);
+			}
 		}
 		else
 		{
-			if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] == '%')
-				i++;
-			else if (format[i] == '%' && format[i + 1] == '\0')
-				return (-1);
 			write(1, &format[i], 1);
 			count++;
 		}
 	}
 	va_end(args);
+
 	return (count);
 }
