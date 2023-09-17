@@ -66,8 +66,30 @@ int print_int(va_list args, int count)
 		count++;
 
 	}
-
+	
 	count += digit_print(num);
 
 	return (count++);
 }
+/**
+ * check_width - check width and print needed spaces
+ * @num: the integer
+ * @format: the format of printing
+ * @i: the index
+ * Return: nothing
+ */
+/*
+int check_width(int num, const char *format, int i)
+{
+	int count = 0;
+
+	if (format[i + 1] == 'd' || format[i + 1] == 'i')
+	{
+		if (format[i] > '0' && format[i] <= '9')
+		{
+			count += print_space(num, format[i] - 48);
+			count += print_int(num);
+		}
+	}
+	return (count);
+}*/

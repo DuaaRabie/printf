@@ -12,7 +12,7 @@ int print_hex(const void *ptr);
 
 /* handle int with width and space */
 int print_space(long int num, int width);
-int print_int(int c);
+int print_int(va_list, int);
 int check_width(int num, const char *format, int i);
 
 /**

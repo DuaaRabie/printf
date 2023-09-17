@@ -11,9 +11,11 @@ int (*get_spc_fun(char ch))(va_list, int)
 	specifier spc[] = {
 		{'c', print_ch},
 		{'s', print_str},
+		{'d', print_int},
+		{'i', print_int}
 	};
 
-	while (i < 2)
+	while (i < 4)
 	{
 		if (ch == spc[i].ch)
 			return (spc[i].f);
