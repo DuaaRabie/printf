@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int count = 0, i;
 	int (*spfun)(va_list, int);
 
-	if (format == NULL || format[0] == '\0')
+	if (format == NULL && *format == '\0')
 	{
 		return (-1);
 	}

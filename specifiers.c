@@ -47,16 +47,16 @@ int print_ch(va_list args, int count)
  */
 int print_str(va_list args, int count)
 {
-	const char *s;
+	char *s;
 	int j;
 
 	s = va_arg(args, char*);
-	if (s == NULL)
+	if (s == NULL && s[0] == '\0')
 		s = "(null)";
 	for (j = 0; s != NULL && s[j] != '\0'; j++)
 	{
-		write(1, s + j, 1);
-		count++;
+			write(1, s + j, 1);
+			count++;
 	}
 
 	return (count);

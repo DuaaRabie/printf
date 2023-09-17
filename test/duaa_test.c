@@ -29,8 +29,8 @@ int main(void)
 /*	unsigned int ui;
 	void *addr;
 */
- 	len = _printf("");
-	len2 = printf("Duaa\n");
+ 	len = _printf(" \n");
+	len2 = printf(" \n");
 	printf("%d\n", len);
 	printf("%d\n", len2);
 /*	addr = (void *)0x7ffe637541f0;
