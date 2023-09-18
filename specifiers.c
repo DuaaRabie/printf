@@ -27,4 +27,3 @@ int (*get_spc_fun(char ch))(va_list, int)
 
 	return (NULL);
 }
->>>>>>> 7458ced4c237d36b957ecf50245d6477b70ab63c
