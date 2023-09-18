@@ -89,9 +89,24 @@ int print_str(va_list args, int count)
  */
 int print_bin(va_list args, int count)
 {
-int num;
+int arr[64];
+int num, i = 0;
 num = va_arg(args, int);
 
+
+while (num != 0)
+{
+arr[i] = num % 2;
+num /= 2;
+i++;
+}
+
+count += i;
+
+for (; i >= 0; i--)
+{
+write(1, &arr[i], 1);
+}
 
 
 return (count);
