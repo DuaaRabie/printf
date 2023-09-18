@@ -6,12 +6,17 @@
  */
 int check_format(const char *format)
 {
-	if (format == NULL || *format == '\0')
+	if (format == NULL)
+	{
 		return (-1);
+	}
 	while (*format)
 	{
 		if (*format == '%' && *(format + 1) == '\0' && *(format - 1) != '%')
+		{
 			return (-1);
+		}
+
 		format++;
 	}
 	return (0);
@@ -40,6 +45,8 @@ int _printf(const char *format, ...)
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
 				count = spfun(args, count);
+			else
+				count += write(1, &format[--i], 1);
 		}
 		else
 		{
