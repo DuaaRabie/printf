@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_space - print space for width
+ *i print_space - print space for width
  * @num: the number
  * @width: the width
  * Return: nothing
@@ -70,4 +70,19 @@ int print_int(va_list args, int count)
 	count += digit_print(num);
 
 	return (count++);
+}
+/**
+ * print_uint - prints unsigned decimal
+ * @args: argument list
+ * @count: the counter
+ * Return: counter
+ */
+int print_uint(va_list args, int count)
+{
+	unsigned long int num;
+
+	num = va_arg(args, long int);
+	count += digit_print(num);
+
+	return (count);
 }

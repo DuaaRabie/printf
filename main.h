@@ -6,14 +6,17 @@
 
 int _printf(const char *format, ...);
 
-/* handle hec */
-int to_hex(int n);
-int print_hex(const void *ptr);
+/* handle hex */
+int hex_digit_print(unsigned long int num);
+int HEX_digit_print(unsigned long int num);
 
 /* handle int with width and space */
 int print_space(long int num, int width);
-int print_int(va_list, int);
 int check_width(int num, const char *format, int i);
+int digit_print(long int num);
+
+/* handle int with width and space */
+int o_digit_print(long int num);
 
 /**
  * struct specifier - struct for specifer type and function
@@ -26,10 +29,16 @@ typedef struct specifier
 	int (*f)(va_list args, int count);
 } specifier;
 
+/* specifiers */
 int (*get_spc_fun(char ch))(va_list, int);
 int print_ch(va_list, int);
 int print_str(va_list, int);
 int print_per(va_list, int);
+int print_int(va_list, int);
 int print_bin(va_list, int);
+int print_uint(va_list, int);
+int print_oct(va_list, int);
+int print_hex(va_list, int);
+int print_HEX(va_list, int);
 
 #endif

@@ -15,10 +15,14 @@ int (*get_spc_fun(char ch))(va_list, int)
 		{'%', print_per},
 		{'d', print_int},
 		{'i', print_int},
-		{'b', print_bin}
+		{'b', print_bin},
+		{'u', print_uint},
+		{'o', print_oct},
+		{'x', print_hex},
+		{'X', print_HEX}
 	};
 
-	while (i < 6)
+	while (i < 10)
 	{
 		if (ch == spc[i].ch)
 			return (spc[i].f);
@@ -27,4 +31,3 @@ int (*get_spc_fun(char ch))(va_list, int)
 
 	return (NULL);
 }
->>>>>>> 7458ced4c237d36b957ecf50245d6477b70ab63c
