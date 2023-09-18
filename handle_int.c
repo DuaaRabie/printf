@@ -79,7 +79,7 @@ int print_int(va_list args, int count)
  */
 int print_uint(va_list args, int count)
 {
-	long int num = va_arg(args, long int);
+	long int num = va_arg(args, unsigned long int);
 
 	if (num < 0)
 		num *= -1;
