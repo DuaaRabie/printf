@@ -9,7 +9,8 @@
 int print_bin(va_list args, int count)
 {
 int arr[64];
-int num, i = 0;
+unsigned int num;
+int i = 0;
 char bit;
 num = va_arg(args, int);
 if (num == 0)
