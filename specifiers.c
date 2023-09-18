@@ -11,11 +11,12 @@ int (*get_spc_fun(char ch))(va_list, int)
 	specifier spc[] = {
 		{'c', print_ch},
 		{'s', print_str},
+		{'%', print_per},
 		{'d', print_int},
 		{'i', print_int}
 	};
 
-	while (i < 4)
+	while (i < 5)
 	{
 		if (ch == spc[i].ch)
 			return (spc[i].f);
@@ -24,6 +25,22 @@ int (*get_spc_fun(char ch))(va_list, int)
 
 	return (NULL);
 }
+/**
+ * print_per - prints percent
+ * @args: list of arguments
+ * @count: counter of printed characters
+ * Return: the counter
+ */
+int print_per(va_list args, int count)
+{
+	char c = '%';
+
+	(void) args;
+	write(1, &c, 1);
+
+	return (++count);
+}
+
 /**
  * print_ch - prints characters
  * @args: list of arguments
