@@ -91,24 +91,29 @@ int print_bin(va_list args, int count)
 {
 int arr[64];
 int num, i = 0;
+char bit;
 num = va_arg(args, int);
 
+if (num == 0)
+{
+	write(1, "0", 1);
+	return (++count);
+}
 
 while (num != 0)
 {
-arr[i] = num % 2;
-num /= 2;
-i++;
+	arr[i] = num % 2;
+	num /= 2;
+	i++;
 }
 
 count += i;
 
-for (; i >= 0; i--)
+for (i = i - 1; i >= 0; i--)
 {
-write(1, &arr[i], 1);
+	bit = arr[i] + '0';
+	write(1, &bit, 1);
 }
-
 
 return (count);
 }
-

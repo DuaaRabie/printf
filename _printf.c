@@ -66,6 +66,6 @@ int _printf(const char *format, ...)
  */
 int main(void)
 {
-_printf("%b\n", 98);
+_printf("%d\n", _printf("%b\n", 98));
 return (0);
 }
