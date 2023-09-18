@@ -30,5 +30,6 @@ int (*get_spc_fun(char ch))(va_list, int);
 int print_ch(va_list, int);
 int print_str(va_list, int);
 int print_per(va_list, int);
+int print_bin(va_list, int);
 
 #endif

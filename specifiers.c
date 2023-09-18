@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * get_spc_fun - a function that selects the correct specifier
  * @ch: the character determine th specifier
@@ -13,10 +14,11 @@ int (*get_spc_fun(char ch))(va_list, int)
 		{'s', print_str},
 		{'%', print_per},
 		{'d', print_int},
-		{'i', print_int}
+		{'i', print_int},
+		{'b', print_bin}
 	};
 
-	while (i < 5)
+	while (i < 6)
 	{
 		if (ch == spc[i].ch)
 			return (spc[i].f);
@@ -25,3 +27,4 @@ int (*get_spc_fun(char ch))(va_list, int)
 
 	return (NULL);
 }
+>>>>>>> 7458ced4c237d36b957ecf50245d6477b70ab63c
