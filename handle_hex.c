@@ -32,7 +32,7 @@ int print_hex(va_list args, int count)
 {
 	unsigned long int num;
 
-	num = va_arg(args, int);
+	num = va_arg(args, long int);
 	count += hex_digit_print(num);
 
 	return (count);

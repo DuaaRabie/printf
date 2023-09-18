@@ -26,11 +26,12 @@ int main(void)
   
 	int len;
 	int len2;
-/*	unsigned int ui;
-	void *addr;
-*/
- 	len = _printf("%X\n", 123456789);
-	len2 = printf("%X\n", 123456789);
+	unsigned int ui;
+/*	void *addr; */
+
+	ui = (unsigned int)INT_MAX + 1024;
+ 	len = _printf("%X\n", ui);
+	len2 = printf("%X\n", ui);
 	printf("%d\n", len);
 	printf("%d\n", len2);
 /*	addr = (void *)0x7ffe637541f0;
