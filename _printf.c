@@ -11,15 +11,7 @@ int check_format(const char *format)
 	{
 		return (-1);
 	}
-	while (*format)
-	{
-		if (*format == '%' && *(format + 1) == '\0' && *(format - 1) != '%')
-		{
-			return (-1);
-		}
 
-		format++;
-	}
 	return (0);
 }
 
@@ -43,6 +35,10 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i] == '%' && format[i + 1] == '\0' && format[i - 1] != '%')
+			{
+				return (-1);
+			}
 			i++;
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
