@@ -8,7 +8,7 @@
  */
 int print_bin(va_list args, int count)
 {
-int arr[1024];
+int arr[32];
 int num, i = 0;
 char bit;
 num = va_arg(args, int);
