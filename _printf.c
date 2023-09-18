@@ -1,5 +1,21 @@
 #include "main.h"
-
+/**
+ * check_format - check if there is special cases in the format
+ * @format: the format to be printed
+ * Return: 0 || -1
+ */
+int check_format(const char *format)
+{
+	if (format == NULL)
+		return (-1);
+	while (*format)
+	{
+		if (*format == '%' && *(format + 1) == '\0' && *(format - 1) != '%')
+			return (-1);
+		format++;
+	}
+	return (0);
+}
 /**
  * _printf - prints a format
  * @format: the format to be printed
@@ -12,10 +28,8 @@ int _printf(const char *format, ...)
 	int count = 0, i;
 	int (*spfun)(va_list, int);
 
-	if (format == NULL)
-	{
+	if (check_format(format) == -1)
 		return (-1);
-	}
 
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
@@ -26,15 +40,11 @@ int _printf(const char *format, ...)
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
 				count = spfun(args, count);
-			else
-				return (-1);
 		}
 		else
 		{
 			if (format[i] == '%' && format[i + 1] != '\0' && format[i + 1] == '%')
 				i++;
-			else if (format[i] == '%' && format[i + 1] == '\0')
-				return (-1);
 			write(1, &format[i], 1);
 			count++;
 		}
