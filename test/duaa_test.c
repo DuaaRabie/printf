@@ -30,8 +30,8 @@ int main(void)
 /*	void *addr; */
 
 	ui = (unsigned int)INT_MAX + 1024;
- 	len = _printf("%X\n", ui);
-	len2 = printf("%X\n", ui);
+ 	len = _printf("%u\n", ui);
+	len2 = printf("%u\n", ui);
 	printf("%d\n", len);
 	printf("%d\n", len2);
 /*	addr = (void *)0x7ffe637541f0;
