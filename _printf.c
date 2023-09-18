@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * check_format - check if there is special cases in the format
  * @format: the format to be printed
@@ -21,6 +22,7 @@ int check_format(const char *format)
 	}
 	return (0);
 }
+
 /**
  * _printf - prints a format
  * @format: the format to be printed
