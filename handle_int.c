@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *i print_space - print space for width
+ * print_space - print space for width
  * @num: the number
  * @width: the width
  * Return: nothing

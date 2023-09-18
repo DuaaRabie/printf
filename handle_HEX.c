@@ -24,7 +24,7 @@ int HEX_digit_print(unsigned long int num)
 
 
 /**
- * print_hex - prints unsigned decimal
+ * print_HEX - prints unsigned decimal
  * @args: argument list
  * @count: the counter
  * Return: counter
