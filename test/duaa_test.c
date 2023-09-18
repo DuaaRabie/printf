@@ -23,13 +23,15 @@ int main(void)
 	_printf("%d\n", len);
 */
 
-  
+
+
 	int len;
 	int len2;
 /*	void *addr; */
 
  	len = _printf("%X\n", -1234567891234567);
 	len2 = printf("%X\n", -1234567891234567);
+	_printf("myc name: %s, %c, %i\n", "Duaa", 'D', -15);
 	printf("%d\n", len);
 	printf("%d\n", len2);
 /*	addr = (void *)0x7ffe637541f0;
