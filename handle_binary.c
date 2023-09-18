@@ -8,11 +8,10 @@
  */
 int print_bin(va_list args, int count)
 {
-int arr[32];
+int arr[64];
 int num, i = 0;
 char bit;
 num = va_arg(args, int);
-
 if (num == 0)
 {
 	write(1, "0", 1);
