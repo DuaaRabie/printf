@@ -6,7 +6,7 @@
  */
 int check_format(const char *format)
 {
-	if (format == NULL)
+	if (format == NULL || *format == '\0')
 		return (-1);
 	while (*format)
 	{
