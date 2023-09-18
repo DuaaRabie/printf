@@ -8,31 +8,27 @@
  */
 int print_bin(va_list args, int count)
 {
-int arr[32];
-int num, i = 0;
-char bit;
-num = va_arg(args, int);
+	unsigned int n, m, i, sum;
+	unsigned int a[32];
 
-if (num == 0)
-{
-	write(1, "0", 1);
-	return (++count);
-}
+	n = va_arg(args, unsigned int);
+	m = 2147483648; /* (2 ^ 31) */
+	a[0] = n / m;
+	for (i = 1; i < 32; i++)
+	{
+		m /= 2;
+		a[i] = (n / m) % 2;
+	}
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	{
+		sum += a[i];
+		if (sum || i == 31)
+		{
+			char z = '0' + a[i];
 
-while (num != 0)
-{
-	arr[i] = num % 2;
-	num /= 2;
-	i++;
-}
-
-count += i;
-
-for (i = i - 1; i >= 0; i--)
-{
-	bit = arr[i] + '0';
-	write(1, &bit, 1);
-}
-
-return (count);
+			write(1, &z, 1);
+			count++;
+		}
+	}
+	return (count);
 }
