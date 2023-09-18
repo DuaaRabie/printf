@@ -13,7 +13,8 @@ int (*get_spc_fun(char ch))(va_list, int)
 		{'s', print_str},
 		{'%', print_per},
 		{'d', print_int},
-		{'i', print_int}
+		{'i', print_int},
+		{'b', print_bin}
 	};
 
 	while (i < 5)
@@ -79,3 +80,20 @@ int print_str(va_list args, int count)
 
 	return (count);
 }
+
+/**
+ * print_bin - prints binary
+ * @args: list of arguments
+ * @count: counter of printed characters
+ * Return: the counter
+ */
+int print_bin(va_list args, int count)
+{
+int num;
+num = va_arg(args, int);
+
+
+
+return (count);
+}
+
