@@ -31,6 +31,7 @@ int print_space(long int num, int width)
 
 	return (count);
 }
+
 /**
  * digit_print - print integers
  * @num: integer to print
@@ -71,6 +72,7 @@ int print_int(va_list args, int count)
 
 	return (count++);
 }
+
 /**
  * print_uint - prints unsigned decimal
  * @args: argument list
