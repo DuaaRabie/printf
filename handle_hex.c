@@ -30,9 +30,9 @@ int hex_digit_print(unsigned long int num)
  */
 int print_hex(va_list args, int count)
 {
-	unsigned long int num;
+	unsigned int num;
 
-	num = va_arg(args, long int);
+	num = va_arg(args, int);
 	count += hex_digit_print(num);
 
 	return (count);

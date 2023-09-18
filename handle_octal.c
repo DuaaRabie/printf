@@ -26,9 +26,9 @@ int o_digit_print(long int num)
  */
 int print_oct(va_list args, int count)
 {
-	unsigned long int num;
+	unsigned int num;
 
-	num = va_arg(args, long int);
+	num = va_arg(args, int);
 	count += o_digit_print(num);
 
 	return (count);

@@ -28,8 +28,8 @@ int main(void)
 	int len2;
 /*	void *addr; */
 
- 	len = _printf("%u\n", -0);
-	len2 = printf("%u\n", -0);
+ 	len = _printf("%X\n", -1234567891234567);
+	len2 = printf("%X\n", -1234567891234567);
 	printf("%d\n", len);
 	printf("%d\n", len2);
 /*	addr = (void *)0x7ffe637541f0;
