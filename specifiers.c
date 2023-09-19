@@ -19,10 +19,12 @@ int (*get_spc_fun(char ch))(va_list, int)
 		{'u', print_uint},
 		{'o', print_oct},
 		{'x', print_hex},
-		{'X', print_HEX}
+		{'X', print_HEX},
+		{'S', handel_cstm},
+
 	};
 
-	while (i < 10)
+	while (i < 11)
 	{
 		if (ch == spc[i].ch)
 			return (spc[i].f);

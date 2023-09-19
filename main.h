@@ -40,5 +40,6 @@ int print_uint(va_list, int);
 int print_oct(va_list, int);
 int print_hex(va_list, int);
 int print_HEX(va_list, int);
+int handel_cstm(va_list, int);
 
 #endif
