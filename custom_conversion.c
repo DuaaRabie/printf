@@ -26,10 +26,19 @@ if (is_printable(str[i]))
 count += write(1, &str[i], 1);
 else
 {
+if ((str[i] >= 0 && str[i] <= 0xF))
+{
 write(1, "\\", 1);
 write(1, "x", 1);
 write(1, "0", 1);
 count += HEX_digit_print(str[i]) + 2;
+}
+else
+{
+write(1, "\\", 1);
+write(1, "x", 1);
+count += HEX_digit_print(str[i]) + 2;
+}
 }
 i++;
 }
