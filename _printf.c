@@ -56,3 +56,17 @@ int _printf(const char *format, ...)
 
 	return (count);
 }
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+char str[] = "\n";
+_printf("%S\n", str);
+
+return (0);
+
+}
