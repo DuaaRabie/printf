@@ -1,16 +1,19 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-#define BUFFER_SIZE 1024
-
 #include <stdarg.h>
 #include <unistd.h>
 
 int _printf(const char *format, ...);
 
+/* handle hex */
+int hex_digit_print(unsigned long int num);
+int HEX_digit_print(unsigned long int num);
+
 /* handle int with width and space */
 int print_space(long int num, int width);
 int check_width(int num, const char *format, int i);
+int digit_print(long int num);
 
 /* handle int with width and space */
 int o_digit_print(long int num);
@@ -23,19 +26,19 @@ int o_digit_print(long int num);
 typedef struct specifier
 {
 	char ch;
-	int (*f)(va_list args, char* buffer);
+	int (*f)(va_list args, int count);
 } specifier;
 
 /* specifiers */
-int (*get_spc_fun(char ch))(va_list, char*);
-int print_ch(va_list, char*);
-int print_str(va_list, char*);
-int print_per(va_list, char*);
-int print_int(va_list, char*);
-int print_bin(va_list, char*);
-int print_uint(va_list, char*);
-int print_oct(va_list, char*);
-int print_hex(va_list, char*);
-int print_HEX(va_list, char*);
+int (*get_spc_fun(char ch))(va_list, int);
+int print_ch(va_list, int);
+int print_str(va_list, int);
+int print_per(va_list, int);
+int print_int(va_list, int);
+int print_bin(va_list, int);
+int print_uint(va_list, int);
+int print_oct(va_list, int);
+int print_hex(va_list, int);
+int print_HEX(va_list, int);
 
 #endif
