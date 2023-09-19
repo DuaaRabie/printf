@@ -12,7 +12,7 @@
 
 int handel_cstm(va_list args, int count)
 {
-char *str;
+char *str, hold;
 int i;
 i = 0;
 str = va_arg(args, char *);
@@ -24,25 +24,14 @@ if (is_printable(str[i]))
 count += write(1, &str[i], 1);
 else
 {
-if ((str[i] >= 0 && str[i] <= 0xF))
+if ((int)str[i] < 16)
 {
-int hold;
 write(1, "\\", 1);
 write(1, "x", 1);
 write(1, "0", 1);
-hold = str[i] % 16;
-if (hold <= 9)
-{
-hold += '0';
+count += 4;
+hold = str[i] % 16 + ((str[i] > 9) ? 'A' - 10 : '0');
 write(1, &hold, 1);
-count++;
-}
-else
-{
-hold += ('A' - 10);
-write(1, &hold, 1);
-count++;
-}
 }
 else
 {
