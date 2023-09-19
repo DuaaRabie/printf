@@ -42,5 +42,7 @@ int print_hex(va_list, int);
 int print_HEX(va_list, int);
 int handel_cstm(va_list, int);
 int is_printable(char);
+int handle_pointer(va_list args, int count);
+
 
 #endif
