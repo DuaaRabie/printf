@@ -10,20 +10,29 @@
 
 int handle_pointer(va_list args, int count)
 {
-char hex_digits[] = "0123456789abcdef";
-unsigned long address;
 void *ptr;
-char hex_address[16];
-int index;
-index = 0;
 ptr = va_arg(args, void *);
-address = (unsigned long)ptr;
-write(1, "0", 1);
-write(1, "x", 1);
-count += 2;
 
-if (ptr == NULL)
-	return (write(1, "(nil)", 5));
+count += print_pointer(ptr);
+
+return (count);
+}
+
+
+/**
+ * print_pointer - a function that prints a hex number
+ * @ptr: number to print
+ * Return: count
+*/
+
+int print_pointer(const void *ptr)
+{
+char hex_digits[] = "0123456789ABCDEF";
+unsigned long address = (unsigned long)ptr;
+char hex_address[16];
+int count = 0;
+int index = 0;
+write(1, "0x", 2);
 
 if (address == 0)
 {
@@ -40,11 +49,8 @@ while (address != 0)
 }
 }
 
-hex_address[index] = '\0';
-
 while (index > 0)
 write(1, &hex_address[--index], 1);
 
 return (count);
 }
-

@@ -45,8 +45,7 @@ unsigned long long address = (unsigned long long)ptr;
 char hex_address[16];
 int count = 0;
 int index = 0;
-putchar('0');
-putchar('x');
+write(1, "0x", 2);
 
 if (address == 0)
 {
@@ -64,7 +63,7 @@ while (address != 0)
 }
 
 while (index > 0)
-putchar(hex_address[--index]);
+write(1, &hex_address[--index], 1);
 
 return (count);
 }

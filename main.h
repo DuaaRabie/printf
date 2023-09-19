@@ -41,10 +41,15 @@ int print_oct(va_list, int);
 int print_hex(va_list, int);
 int print_HEX(va_list, int);
 int handel_cstm(va_list, int);
+int print_pointer(const void *ptr);
+
+
+
+
 int is_printable(char);
 int handle_pointer(va_list args, int count);
 int is_single_hex(int n);
-
+int to_hex(long n);
 
 
 #endif
