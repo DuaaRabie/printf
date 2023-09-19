@@ -58,9 +58,9 @@ int main(void)
 	printf("%d\n", len);
 	len = _printf("%d\n", 214);
 	_printf("%d\n", len);
+ 
 
-
-  *
+ 
   *
   * int len;
   * int len2;
