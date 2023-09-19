@@ -17,8 +17,6 @@ int i;
 i = 0;
 str = va_arg(args, char *);
 
-if (str == NULL)
-str = "(null)";
 
 
 while (str[i])
