@@ -21,10 +21,11 @@ int (*get_spc_fun(char ch))(va_list, int)
 		{'x', print_hex},
 		{'X', print_HEX},
 		{'S', handel_cstm},
-		{'p', handel_cstm}
+		{'p', handel_cstm},
+		{'r', handel_rev}
 	};
 
-	while (i < 12)
+	while (i < 13)
 	{
 		if (ch == spc[i].ch)
 			return (spc[i].f);

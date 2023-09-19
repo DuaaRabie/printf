@@ -5,31 +5,37 @@
 int handle_pointer(va_list args, int count)
 {
     void *ptr;
-    long hold;
-    int i;
-    int count_before = count;
-    char hex_digits[] = "0123456789abcdef";
+    int i, h;
+    char arr[16];
+    long numptr;
 
     ptr = va_arg(args, void *);
-    hold = (long)ptr;
 
-    write(1, "0x", 2);
-    count += 2;
-
-    for (i = sizeof(void *) * 2 - 1; i >= 0; i--)
+    numptr = (long)ptr;
+    i = 0;
+    while (numptr != 0)
     {
-        int index = (hold >> (i * 4)) & 0xF;
-        write(1, &hex_digits[index], 1);
-        count++;
+        h = (numptr % 16);
+        if (h < 10)
+            h += '0';
+        else
+            h += 'a' - 10;
+        arr[i] = h;
+
+        numptr /= 16;
+        i++;
     }
-  
-    return count - count_before;
+    count += i;
+    i--;
+    while (i >= 0)
+        write(1, &arr[i--], 1);
+
+    return count;
 }
 
 int main()
 {
-    void *ptr = &main;
-    int count = handle_pointer(ptr, 0);
+    int count = handle_pointer(&main, 0);
     printf("\nCount: %d\n", count);
     return 0;
 }

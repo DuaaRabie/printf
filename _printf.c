@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * check_format - check if there is special cases in the format
@@ -58,15 +57,3 @@ int _printf(const char *format, ...)
 	return (count);
 }
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
-{
-printf("%p\n", &main);
-_printf("%p\n", &main);
-
-return (0);
-}
