@@ -38,8 +38,6 @@ count += to_hex(c);
 break;*/
 
 
-
-
 /*
 int main(void)
 {
