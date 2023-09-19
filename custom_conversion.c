@@ -17,25 +17,36 @@ int i;
 i = 0;
 str = va_arg(args, char *);
 
-if (str == NULL)
-	return (write(1, "(null)", 6));
+	if (str == NULL)
+		return (write(1, "(null)", 6));
 
 while (str[i])
 {
-if ((str[i] < 32) || str[i] >= 127)
+if (is_printable(str[i]))
+count += write(1, &str[i], 1);
+else
 {
 write(1, "\\", 1);
 write(1, "x", 1);
 write(1, "0", 1);
 count += HEX_digit_print(str[i]) + 2;
 }
-else
-{
-write(1, &str[i], 1);
-count++;
-}
 i++;
 }
-
 return (count);
+}
+
+/**
+ * is_printable - Evaluates if a char is printable
+ * @c: Char to be evaluated.
+ *
+ * Return: 1 if c is printable, 0 otherwise
+ */
+
+int is_printable(char c)
+{
+	if (c >= 32 && c < 127)
+		return (1);
+
+	return (0);
 }
