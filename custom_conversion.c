@@ -18,8 +18,7 @@ i = 0;
 str = va_arg(args, char *);
 
 if (str == NULL)
-str = "(null)";
-
+	return (write(1, "(null)", 6));
 
 while (str[i])
 {
