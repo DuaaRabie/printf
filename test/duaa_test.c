@@ -27,12 +27,13 @@ int main(void)
 
 	
 	int len2;
-/*	void *addr; 
+	int len;
+/*	void *addr; */
 
- 	len = _printf("myc name: %s, %c, %i\n%", "Duaa", 'D', -15);*/
-	len2 = printf("myc name: %s, %c, %i\n%", "Duaa", 'D', -15);
+ 	len = _printf("%S\n", "Best\rSchool");
+	len2 = printf("%S\n", "Best School");
 	
-	printf("%d\n", len2);
+	printf("%d, %d\n", len, len2);
 /*	addr = (void *)0x7ffe637541f0;
 	ui = (unsigned int)INT_MAX + 1024;
 	_printf("%d\n", len);

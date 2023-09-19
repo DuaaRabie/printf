@@ -12,6 +12,7 @@ int arr[64];
 unsigned int num;
 int i = 0;
 char bit;
+
 num = va_arg(args, int);
 if (num == 0)
 {

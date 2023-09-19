@@ -15,7 +15,7 @@ str = va_arg(args, char *);
 
 if (str == NULL)
 	return (write(1, "(null)", 6));
-    
+
 count += rev_str(str);
 
 return (count);
