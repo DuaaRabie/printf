@@ -5,24 +5,28 @@
  * print_binary - ...
  * @n: number to print
  * Return: the count of printed numbers
- */
+*/
 
-int print_binary(int n) {
-  int count = 0;
-  char digits[32];
-  int i = 0, j;
+int print_binary(int n)
+{
+int count = 0;
+char digits[32];
+int i = 0, j;
 
-  while (n != 0) {
-    digits[i] = (n % 2) + '0';
-    n /= 2;
-    i++;
-  }
-  for (j = i - 1; j >= 0; j--) {
-    write(1, &(digits[j]), 1);
-    count++;
-  }
-  return (count);
+while (n != 0)
+{
+digits[i] = (n % 2) + '0';
+n /= 2;
+i++;
 }
+for (j = i - 1; j >= 0; j--)
+{
+write(1, &(digits[j]), 1);
+count++;
+}
+return (count);
+}
+
 
 /* your b and S switch cases */
 /*
@@ -33,29 +37,30 @@ c = va_arg(args, int);c = va_arg(args, int);
 count += to_hex(c);
 break;*/
 
+
 /*
 int main(void)
 {
 
-        _printf("myc name: %s, %c, %6i\n", "Duaa", 'D', -15);
-        printf("myc name: %s, %c, %6i\n", "Duaa", 'D', -15);
+	_printf("myc name: %s, %c, %6i\n", "Duaa", 'D', -15);
+	printf("myc name: %s, %c, %6i\n", "Duaa", 'D', -15);
+	
+	_printf("myc name: %s, %c, %4d no\n", "Omar", 'O', -2035065302);
+	printf("myc name: %s, %c, %4d no\n", "Omar", 'O', -2035065302);
 
-        _printf("myc name: %s, %c, %4d no\n", "Omar", 'O', -2035065302);
-        printf("myc name: %s, %c, %4d no\n", "Omar", 'O', -2035065302);
+	int len;
+	_printf("myc name: %s, %c, %i yes \n", "Duaa", 'D', -2035065302);
+	_printf("myc name: %s, %c, %d no \n", "Omar", 'O', 1560133635);
+	len = _printf("%b\n", 7);
+	_printf("%d\n", len);
+	printf("%S", "hi\n")
+	len = printf("%b\n", 7);
+	printf("%d\n", len);
+	len = _printf("%d\n", 214);
+	_printf("%d\n", len);
+ 
 
-        int len;
-        _printf("myc name: %s, %c, %i yes \n", "Duaa", 'D', -2035065302);
-        _printf("myc name: %s, %c, %d no \n", "Omar", 'O', 1560133635);
-        len = _printf("%b\n", 7);
-        _printf("%d\n", len);
-        printf("%S", "hi\n")
-        len = printf("%b\n", 7);
-        printf("%d\n", len);
-        len = _printf("%d\n", 214);
-        _printf("%d\n", len);
-
-
-
+ 
   *
   * int len;
   * int len2;
@@ -89,5 +94,7 @@ int main(void)
    * _printf("Unknown:[%r]\n");
    * printf("Unknown:[%r]\n");
    *
-        return (0);
+	return (0); 
 }*/
+
+
