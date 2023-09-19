@@ -16,10 +16,8 @@ char *str;
 int i;
 i = 0;
 str = va_arg(args, char *);
-
 	if (str == NULL)
 		return (write(1, "(null)", 6));
-
 while (str[i])
 {
 if (is_printable(str[i]))
@@ -28,16 +26,27 @@ else
 {
 if ((str[i] >= 0 && str[i] <= 0xF))
 {
+int hold;
 write(1, "\\", 1);
 write(1, "x", 1);
 write(1, "0", 1);
-count += HEX_digit_print(str[i]) + 2;
+hold = str[i] % 16;
+if (hold <= 9)
+{
+hold += '0';
+write(1, &hold, 1);
+count++;
 }
 else
 {
-write(1, "\\", 1);
-write(1, "x", 1);
-count += HEX_digit_print(str[i]) + 2;
+hold += ('A' - 10);
+write(1, &hold, 1);
+count++;
+}
+}
+else
+{
+count += HEX_digit_print(str[i]);
 }
 }
 i++;

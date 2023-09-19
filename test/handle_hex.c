@@ -28,7 +28,7 @@ write(1, &hold, 1);
 count++;
 n /= 16;
 }
-printf("x0");
+write(1, "x0", 2);
 return (count);
 }
 
