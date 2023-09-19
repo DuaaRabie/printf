@@ -5,7 +5,7 @@
  * @ch: the character determine th specifier
  * Return: a function pointer of the correct specifier
  */
-int (*get_spc_fun(char ch))(va_list, int)
+int (*get_spc_fun(char ch))(va_list, char*)
 {
 	int i = 0;
 
@@ -15,14 +15,13 @@ int (*get_spc_fun(char ch))(va_list, int)
 		{'%', print_per},
 		{'d', print_int},
 		{'i', print_int},
-		{'b', print_bin},
 		{'u', print_uint},
 		{'o', print_oct},
 		{'x', print_hex},
 		{'X', print_HEX}
 	};
 
-	while (i < 10)
+	while (i < 9)
 	{
 		if (ch == spc[i].ch)
 			return (spc[i].f);

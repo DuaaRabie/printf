@@ -1,40 +1,39 @@
 #include "main.h"
 
 /**
- * hex_digit_print - print integers
- * @num: integer to print
- * Return: count
- */
-int hex_digit_print(unsigned long int num)
-{
-	int count = 0;
-	char digit;
-
-	if (num / 16 != 0)
-		count += hex_digit_print(num / 16);
-	digit = num % 16;
-	if (digit >= 0 && digit <= 9)
-		digit += '0';
-	else
-		digit = digit - 10 + 'a';
-	write(1, &digit, 1);
-
-	return (++count);
-}
-
-
-/**
- * print_hex - prints unsigned decimal
+ * print_hex - prints hexdecimal in small
  * @args: argument list
- * @count: the counter
- * Return: counter
+ * @buffer: the buffer
+ * Return: size
  */
-int print_hex(va_list args, int count)
+int print_hex(va_list args, char *buffer)
 {
-	unsigned int num;
+	int len = 0, remainder, i;
+	unsigned int num = va_arg(args, int), numlength = num;
 
-	num = va_arg(args, int);
-	count += hex_digit_print(num);
+	if (num == 0)
+	{
+		buffer[0] = '0';
+		len = 1;
+	}
 
-	return (count);
+	else
+	{
+		while (numlength)
+		{
+			numlength /= 16;
+			len++;
+		}
+		i = len;
+		while (num)
+		{
+			remainder = num % 16;
+			buffer[i - 1] = (remainder < 10) ? remainder + '0' : remainder + 'a' - 10;
+			num /= 16;
+			i--;
+		}
+
+	}
+
+	return (len);
 }

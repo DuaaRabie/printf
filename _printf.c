@@ -24,8 +24,9 @@ int check_format(const char *format)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0, i;
-	int (*spfun)(va_list, int);
+	int count = 0, i, size;
+	int (*spfun)(va_list, char*);
+	char buffer[BUFFER_SIZE];
 
 	if (check_format(format) == -1)
 		return (-1);
@@ -42,14 +43,16 @@ int _printf(const char *format, ...)
 			i++;
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
-				count = spfun(args, count);
+			{
+				size = spfun(args, buffer);
+				count += write(1, buffer, size);
+			}
 			else
 				count += write(1, &format[--i], 1);
 		}
 		else
 		{
-			write(1, &format[i], 1);
-			count++;
+			count += write(1, &format[i], 1);
 		}
 	}
 	va_end(args);

@@ -3,54 +3,52 @@
 /**
  * print_per - prints percent
  * @args: list of arguments
- * @count: counter of printed characters
- * Return: the counter
+ * @buffer: the buffer
+ * Return: size
  */
-int print_per(va_list args, int count)
+int print_per(va_list args, char *buffer)
 {
-	char c = '%';
+	buffer[0] = '%';
 
 	(void) args;
-	write(1, &c, 1);
 
-	return (++count);
+	return (1);
 }
 
 /**
  * print_ch - prints characters
  * @args: list of arguments
- * @count: counter of printed characters
- * Return: the counter
+ * @buffer: the buffer
+ * Return: size
  */
-int print_ch(va_list args, int count)
+int print_ch(va_list args, char *buffer)
 {
-	unsigned char c;
+	unsigned char c = va_arg(args, int);
 
-	c = va_arg(args, int);
-	write(1, &c, 1);
+	buffer[0] = c;
 
-	return (++count);
+	return (1);
 }
 
 /**
  * print_str - prints strings
  * @args: list of arguments
- * @count: counter of printed characters
- * Return: the counter
+ * @buffer: the buffer
+ * Return: size
  */
-int print_str(va_list args, int count)
+int print_str(va_list args, char *buffer)
 {
 	const char *s;
-	int j;
+	int j = 0, size = 0;
 
 	s = va_arg(args, char*);
 	if (s == NULL)
 		s = "(null)";
-	for (j = 0; s[j] != '\0'; j++)
+	while (s[j++])
 	{
-		write(1, &s[j], 1);
-		count++;
+	size++;
+	buffer[j] = s[j];
 	}
 
-	return (count);
+	return (size);
 }
