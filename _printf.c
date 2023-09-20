@@ -24,7 +24,7 @@ int check_format(const char *format)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0, i, space = 0;
+	int i, count = 0;
 	int (*spfun)(va_list, int);
 
 	if (check_format(format) == -1)
