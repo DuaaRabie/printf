@@ -43,8 +43,7 @@ int _printf(const char *format, ...)
 			if (format[i] > 47 && format[i] < 57 && (format[i + 1] = 'd'))
 			{
 				 i++;
-				 space = count;
-			}	
+			}
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
 			{
