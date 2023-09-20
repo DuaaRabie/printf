@@ -40,15 +40,9 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 			i++;
-			if (format[i] > 47 && format[i] < 57 && (format[i + 1] = 'd'))
-			{
-				 i++;
-			}
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
-			{
 				count = spfun(args, count);
-			}
 			else
 				count += write(1, &format[--i], 1);
 		}
