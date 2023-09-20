@@ -4,8 +4,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-#define BUFFER_SIZE 1024
-
 int _printf(const char *format, ...);
 
 /* handle hex */
@@ -51,6 +49,5 @@ int print_pointer(const void *ptr);
 int is_printable(char);
 int is_single_hex(int n);
 int to_hex(long n);
-
 
 #endif

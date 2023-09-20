@@ -24,7 +24,7 @@ int check_format(const char *format)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0, i;
+	int count = 0, i, space = 0;
 	int (*spfun)(va_list, int);
 
 	if (check_format(format) == -1)
@@ -40,9 +40,16 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 			i++;
+			if (format[i] > 47 && format[i] < 57 && (format[i + 1] = 'd'))
+			{
+				 i++;
+				 space = count;
+			}	
 			spfun = get_spc_fun(format[i]);
 			if (spfun != NULL)
+			{
 				count = spfun(args, count);
+			}
 			else
 				count += write(1, &format[--i], 1);
 		}
