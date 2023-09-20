@@ -22,7 +22,6 @@ int HEX_digit_print(unsigned long int num)
 	return (++count);
 }
 
-
 /**
  * print_HEX - prints unsigned decimal
  * @args: argument list

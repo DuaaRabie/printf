@@ -17,7 +17,7 @@ int handle_pointer(va_list args, int count)
 
 	ptr = va_arg(args, void*);
 
-	numptr = (long int)ptr;
+	numptr = &ptr;
 	i = 0;
 	while (numptr != 0)
 	{
@@ -31,10 +31,10 @@ int handle_pointer(va_list args, int count)
 		numptr /= 16;
 		i++;
 	}
+	count += i;
 	i--;
-	count += write(1, "0x", 2);
 	while (i >= 0)
-		count += write(1, &arr[i--], 1);
+		write(1, &arr[i--], 1);
 
 	return (count);
 }

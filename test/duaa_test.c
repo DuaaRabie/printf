@@ -28,10 +28,10 @@ int main(void)
 	
 	int len2;
 	int len;
-/*	void *addr; */
-
- 	len = _printf("%R\n","ROT13 (\"rotate by 13 places\", sometimes hyphenated ROT-13) is a simple letter substitution cipher.\n");
-	len2 = printf("%S\n", "Best School");
+	int num = 5;
+ 	
+ 	len = _printf("%p\n", &num);
+	len2 = printf("%p\n", &num);
 	
 	printf("%d, %d\n", len, len2);
 /*	addr = (void *)0x7ffe637541f0;

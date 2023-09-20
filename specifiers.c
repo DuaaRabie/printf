@@ -21,7 +21,7 @@ int (*get_spc_fun(char ch))(va_list, int)
 		{'x', print_hex},
 		{'X', print_HEX},
 		{'S', handel_cstm},
-		{'p', handel_cstm},
+		{'p', handle_pointer},
 		{'r', handel_rev},
 		{'R', print_rot13}
 	};
