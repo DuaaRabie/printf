@@ -30,7 +30,7 @@ int main(void)
 	int len;
 /*	void *addr; */
 
- 	len = _printf("%S\n", "Best\rSchool");
+ 	len = _printf("%R\n","ROT13 (\"rotate by 13 places\", sometimes hyphenated ROT-13) is a simple letter substitution cipher.\n");
 	len2 = printf("%S\n", "Best School");
 	
 	printf("%d, %d\n", len, len2);
