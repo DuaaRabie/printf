@@ -28,10 +28,10 @@ int main(void)
 	
 	int len2;
 	int len;
-	int num = 5;
+	void *num = NULL;
  	
- 	len = _printf("%p\n", &num);
-	len2 = printf("%p\n", &num);
+ 	len = _printf("%p\n", num);
+	len2 = printf("%p\n", num);
 	
 	printf("%d, %d\n", len, len2);
 /*	addr = (void *)0x7ffe637541f0;

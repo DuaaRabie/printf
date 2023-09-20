@@ -14,10 +14,15 @@ int handle_pointer(va_list args, int count)
 	long int numptr;
 
 	ptr = va_arg(args, void*);
-	numptr = (long int)ptr;
 
-	count += write(1, "0x", 2);
-	count += hex_digit_print(numptr);
-	
+	if (ptr == NULL)
+		count += write(1, "(nil)", 5);
+	else
+	{
+		numptr = (long int)ptr;
+		count += write(1, "0x", 2);
+		count += hex_digit_print(numptr);
+	}
+
 	return (count);
 }
