@@ -5,7 +5,7 @@
  * @ch: the character determine th specifier
  * Return: a function pointer of the correct specifier
  */
-int (*get_spc_fun(char ch))(va_list, int)
+int (*get_spc_fun(char ch))(va_list, char*)
 {
 	int i = 0;
 

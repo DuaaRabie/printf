@@ -3,16 +3,18 @@
 /**
  * print_bin - prints binary
  * @args: list of arguments
- * @count: counter of printed characters
+ * @flags: the flags
  * Return: the counter
  */
-int print_bin(va_list args, int count)
+int print_bin(va_list args, char *flags)
 {
+int count = 0;
 int arr[64];
 unsigned int num;
 int i = 0;
 char bit;
 
+(void) flags;
 num = va_arg(args, int);
 if (num == 0)
 {

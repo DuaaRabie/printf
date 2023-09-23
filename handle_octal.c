@@ -22,12 +22,15 @@ int o_digit_print(long int num)
 /**
  * print_oct - prints unsigned decimal
  * @args: argument list
- * @count: the counter
+ * @flags: the flags
  * Return: counter
  */
-int print_oct(va_list args, int count)
+int print_oct(va_list args, char *flags)
 {
 	unsigned int num;
+	int count = 0;
+
+	(void) flags;
 
 	num = va_arg(args, int);
 	count += o_digit_print(num);

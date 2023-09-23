@@ -6,14 +6,16 @@
  * are printed this way: \x, followed by the ASCII code value
  *  in hexadecimal (upper case - always 2 characters)
  * @args: ...
- * @count: ...
+ * @flags: ...
  * Return: number of bits printed
 */
 
-int handel_cstm(va_list args, int count)
+int handel_cstm(va_list args, char *flags)
 {
 	char *str;
-	int i;
+	int i, count = 0;
+
+	(void) flags;
 
 	i = 0;
 	str = va_arg(args, char *);

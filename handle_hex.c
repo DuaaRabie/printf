@@ -26,13 +26,15 @@ int hex_digit_print(unsigned long int num)
 /**
  * print_hex - prints unsigned decimal
  * @args: argument list
- * @count: the counter
+ * @flags: the flags
  * Return: counter
  */
-int print_hex(va_list args, int count)
+int print_hex(va_list args, char *flags)
 {
+	int count = 0;
 	unsigned int num;
 
+	(void) flags;
 	num = va_arg(args, int);
 	count += hex_digit_print(num);
 

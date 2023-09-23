@@ -25,15 +25,15 @@ int main(void)
 
 
 
+	int len, len2;
+	/*int max = INT_MIN;*/
+
+ 	len =  _printf("%#o", 0);
+	len2 = printf("%#o", 0);
+
+	printf("\n%d\n", len);
+	printf("%d\n", len2);
 	
-	int len2;
-	int len;
-	void *num = NULL;
- 	
- 	len = _printf("%p\n", num);
-	len2 = printf("%p\n", num);
-	
-	printf("%d, %d\n", len, len2);
 /*	addr = (void *)0x7ffe637541f0;
 	ui = (unsigned int)INT_MAX + 1024;
 	_printf("%d\n", len);

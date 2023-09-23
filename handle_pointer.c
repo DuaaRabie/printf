@@ -3,16 +3,18 @@
 /**
  * handle_pointer - Handle the following conversion specifier: p.
  * @args: ...
- * @count: number of bits printed
+ * @flags: the flags
  *
  * Return: the new count
 */
 
-int handle_pointer(va_list args, int count)
+int handle_pointer(va_list args, char *flags)
 {
+	int count = 0;
 	void *ptr;
 	long int numptr;
 
+	(void) flags;
 	ptr = va_arg(args, void*);
 
 	if (ptr == NULL)

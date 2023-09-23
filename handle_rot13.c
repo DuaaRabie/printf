@@ -3,16 +3,17 @@
 /**
  * print_rot13 - encode to rot13
  * @args: list of arguments
- * @count: the counter
+ * @flags: the flags
  * Return: count
  */
-int print_rot13(va_list args, int count)
+int print_rot13(va_list args, char *flags)
 {
-	int i, j;
+	int i, j, count = 0;
 	char s1[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char s2[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *str = va_arg(args, char*);
 
+	(void) flags;
 	if (str == NULL)
 		str = "(null)";
 

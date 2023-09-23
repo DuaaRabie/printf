@@ -4,12 +4,15 @@ int rev_str(char *s);
 /**
  * handel_rev - ...
  * @args: ...
- * @count: ...
+ * @flags: ...
  * Return: ....
 */
-int handel_rev(va_list args, int count)
+int handel_rev(va_list args, char *flags)
 {
+int count = 0;
 char *str;
+
+(void) flags;
 
 str = va_arg(args, char *);
 
