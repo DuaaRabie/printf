@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 			if (format[i] == '%' && format[i + 1] == '\0' && format[i - 1] != '%')
 				return (-1);
 			i++;
-			while (!(is_letter(format[i])))
+			while (!(is_letter(format[i])) && format[i] != '%')
 				flags[k++] = format[i++];
 			flags[k] = '\0';
 			spfun = get_spc_fun(format[i]);
