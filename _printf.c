@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i, count = 0, k = 0;
 	int (*spfun)(va_list, char*);
-	char *flags = malloc(10);
+	char flags[10];
 
 	if (check_format(format) == -1)
 		return (-1);
