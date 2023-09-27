@@ -28,8 +28,8 @@ int main(void)
 	int len, len2;
 	/*int max = INT_MIN;*/
 
- 	len =  _printf("%%");
-	len2 = printf("%%");
+ 	len =  _printf("%!");
+	len2 = printf("%!");
 
 	printf("\n%d\n", len);
 	printf("%d\n", len2);

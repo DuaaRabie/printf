@@ -16,13 +16,13 @@ int check_format(const char *format)
 }
 
 /**
- * is_letter - check letters
+ * is_flag - check flags
  * @ch: character
  * Return: 1 || 0
  */
-int is_letter(char ch)
+int is_flag(char ch)
 {
-	if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'))
+	if ((ch >= '0' && ch <= '9') || ch == ' ' || ch == '+' || ch == '-')
 		return (1);
 
 	return (0);
@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 			if (format[i] == '%' && format[i + 1] == '\0' && format[i - 1] != '%')
 				return (-1);
 			i++;
-			while (!(is_letter(format[i])) && format[i] != '%')
+			while (is_flag(format[i]))
 				flags[k++] = format[i++];
 			flags[k] = '\0';
 			spfun = get_spc_fun(format[i]);
